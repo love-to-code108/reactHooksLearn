@@ -15,7 +15,8 @@ function App() {
 
   const [count, setCount] = useState(0);
   const [object, setObject] = useState({ value: 1, theme: "dark" });
-  const [runOnce, setRunOnce] = useState(() => { console.log("Hello world"); return 69 })
+  const [runOnce, setRunOnce] = useState(() => { console.log("Hello world"); return 69 });
+  const [themeVar , setThemeVar ] = useState(true);
 
 
   // call this function is to decrease the count of the count state by 1
@@ -56,9 +57,13 @@ function App() {
   }
   
   
+  
+  
   const changeTheme = () => {
     setObject( (e) => {
-      return { ...e , theme : "green" };
+      setThemeVar(!themeVar)
+
+      return { ...e , theme : themeVar ? "green" : "black" };
 
     })
   }
